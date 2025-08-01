@@ -11,48 +11,54 @@ const careerSteps = [
     company: "Independent Sales Agent",
     year: "2018",
     description: "Mastered the art of cold outreach, securing high-value sales for clients through relentless persistence and sharp communication.",
-    icon: <FaPhoneAlt className="text-3xl text-beige" />,
+    icon: <FaPhoneAlt className="text-xl md:text-2xl text-beige" />, // Smaller base size
     color: "bg-accent-dark",
+    iconSize: "w-10 h-10 md:w-16 md:h-16" // Responsive container sizing
   },
   {
     title: "Team Leader → Sales Strategist",
     company: "Sales Team Lead",
     year: "2019",
     description: "Promoted to lead a sales team, optimizing workflows, assigning tasks, and refining the sales process for maximum efficiency.",
-    icon: <FaUserTie className="text-3xl text-accent-light" />,
+    icon: <FaUserTie className="text-xl md:text-2xl text-accent-light" />,
     color: "bg-dark-gray",
+    iconSize: "w-10 h-10 md:w-16 md:h-16"
   },
   {
     title: "Operations & Lead Management",
     company: "CC Docs",
     year: "2020",
     description: "Learned the backbone of operations—managing dialers, securing premium leads, and streamlining sales pipelines for scalability.",
-    icon: <FaChartLine className="text-3xl text-beige" />,
+    icon: <FaChartLine className="text-xl md:text-2xl text-beige" />,
     color: "bg-darker",
+    iconSize: "w-10 h-10 md:w-16 md:h-16"
   },
   {
     title: "Founder & CEO",
     company: "Door Closers LLC",
     year: "2021",
     description: "Built a powerhouse agency from the ground up, specializing in lead generation and sales optimization across industries.",
-    icon: <FaRocket className="text-3xl text-beige" />,
+    icon: <FaRocket className="text-xl md:text-2xl text-beige" />,
     color: "bg-accent",
+    iconSize: "w-10 h-10 md:w-16 md:h-16"
   },
   {
     title: "CTO & Tech Innovator",
     company: "Sunsci",
     year: "2022",
     description: "Expanded into tech leadership, developing automation tools and CRM integrations to enhance sales operations.",
-    icon: <FaLaptopCode className="text-3xl text-accent-light" />,
+    icon: <FaLaptopCode className="text-xl md:text-2xl text-accent-light" />,
     color: "bg-dark-gray",
+    iconSize: "w-10 h-10 md:w-16 md:h-16"
   },
   {
     title: "Director of Operations",
     company: "Growthify Labs",
     year: "2023",
     description: "Scaling growth strategies while managing Door Closers, blending operational excellence with visionary leadership.",
-    icon: <FaUserTie className="text-3xl text-beige" />,
+    icon: <FaUserTie className="text-xl md:text-2xl text-beige" />,
     color: "bg-accent-dark",
+    iconSize: "w-10 h-10 md:w-16 md:h-16"
   },
 ];
 
@@ -101,7 +107,7 @@ export default function About() {
                 {/* Icon & Year */}
                 <motion.div
                   whileHover={{ scale: 1.1 }}
-                  className={`${step.color} w-20 h-20 rounded-full flex items-center justify-center flex-shrink-0 relative z-10`}
+                  className={`${step.iconSize} rounded-full flex items-center justify-center flex-shrink-0 relative z-10 ${step.color}`}
                 >
                   {step.icon}
                   <motion.span 
