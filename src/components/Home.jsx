@@ -156,11 +156,6 @@ export default function Home() {
                     "0 0 0px rgba(109,139,116,0)",
                   ],
                 }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
               >
                 {headers[index].span}
               </motion.span>
