@@ -1,10 +1,43 @@
 // components/Home.js
 "use client";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import ClientMarquee from "./ClientMarquee";
 
+const headers = [
+  { main: "Crafting Unbreakable Connections with", span: "Ideal Clients" },
+  { main: "Accelerating Your Growth by Reaching", span: "Perfect Prospects" },
+  { main: "Turning Conversations into Conversions with", span: "Precision Targeting" },
+]
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+}
+
+const titleVariants = {
+  hidden: { y: 40, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 80 } },
+}
+
+
 export default function Home() {
+
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % headers.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
+
   const stats = [
     { value: "4+", label: "Years Of Experience" },
     { value: "50+", label: "High-Impact Campaigns" },
@@ -93,47 +126,48 @@ export default function Home() {
     <section id="home" className="flex flex-col justify-center min-h-screen pb-12 overflow-hidden bg-dark">
       <div className="container mx-auto px-6 sm:px-8 space-y-8">
         {/* Header Section */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           variants={containerVariants}
           viewport={{ once: false, margin: "-100px" }}
           className="space-y-6"
         >
-          <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-beige leading-tight"
-            variants={titleVariants}
-            whileInView="visible"
-          >
-            Building Bridges Between Businesses and Their{" "}
-            <motion.span 
-              className="text-accent"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{
-                opacity: 1,
-                scale: 1,
-                transition: {
-                  delay: 0.3
-                }
-              }}
-              animate={{
-                textShadow: [
-                  "0 0 0px rgba(109,139,116,0)",
-                  "0 0 12px rgba(109,139,116,0.5)",
-                  "0 0 0px rgba(109,139,116,0)"
-                ],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={index}
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-beige leading-tight"
+              variants={titleVariants}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.6 }}
             >
-              Ideal Clients
-            </motion.span>
-          </motion.h1>
+              {headers[index].main}{" "}
+              <motion.span
+                className="text-accent inline-block"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{
+                  opacity: 1,
+                  scale: [1, 1.05, 1],
+                  textShadow: [
+                    "0 0 0px rgba(109,139,116,0)",
+                    "0 0 12px rgba(109,139,116,0.5)",
+                    "0 0 0px rgba(109,139,116,0)",
+                  ],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                {headers[index].span}
+              </motion.span>
+            </motion.h1>
+          </AnimatePresence>
 
-          <motion.p 
+          <motion.p
             className="text-lg sm:text-xl text-gray-light max-w-3xl leading-relaxed"
             variants={{
               hidden: { x: -30, opacity: 0 },
@@ -142,13 +176,13 @@ export default function Home() {
                 opacity: 1,
                 transition: {
                   type: "spring",
-                  delay: 0.4
-                }
-              }
+                  delay: 0.4,
+                },
+              },
             }}
           >
-            Architecting high-performance lead generation systems that drive sustainable growth. 
-            Combining strategic vision with operational excellence to transform your pipeline 
+            Architecting high-performance lead generation systems that drive sustainable growth.
+            Combining strategic vision with operational excellence to transform your pipeline
             from uncertain to unstoppable.
           </motion.p>
         </motion.div>

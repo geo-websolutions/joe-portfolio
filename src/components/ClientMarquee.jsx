@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const clients = [
   { name: "Door Closers", logo: "/assets/icons/doorclosers-logo.png", width: 180, height: 80 },
@@ -11,27 +12,35 @@ const clients = [
 ];
 
 export default function ClientMarquee() {
-  // Duplicate the array to create seamless looping
-  const duplicatedClients = [...clients, ...clients];
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const displayedClients = [...clients, ...clients]; // Only duplicate once
 
   return (
     <div className="relative w-full overflow-hidden py-4 border-t border-b border-accent">
       <motion.div
-        className="flex"
-        animate={{
-          x: ["0%", "-100%"],
-        }}
+        className="flex w-max"
+        animate={{ x: ["0%", "-50%"] }}
         transition={{
-          duration: 20,
+          duration: isMobile ? 15 : 25,
           ease: "linear",
           repeat: Infinity,
         }}
       >
-        {duplicatedClients.map((client, index) => (
-          <div 
-            key={`${client.name}-${index}`} 
-            className="flex-shrink-0 mx-8 flex items-center justify-center"
-            style={{ width: `${client.width}px` }}
+        {displayedClients.map((client, index) => (
+          <div
+            key={`${client.name}-${index}`}
+            className="flex-shrink-0 mx-4 md:mx-8 flex items-center justify-center"
+            style={{
+              width: `${isMobile ? client.width * 0.8 : client.width}px`,
+            }}
           >
             <Image
               src={client.logo}
@@ -40,9 +49,10 @@ export default function ClientMarquee() {
               height={client.height}
               className="object-contain"
               style={{
-                height: `${client.height}px`,
+                height: `${isMobile ? client.height * 0.8 : client.height}px`,
                 width: "auto",
               }}
+              priority={index < 8}
             />
           </div>
         ))}
