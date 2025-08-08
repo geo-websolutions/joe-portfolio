@@ -1,8 +1,7 @@
-import Home from "@/components/Home";
-import Services from "@/components/Services";
-import About from "@/components/About";
-import Contact from "@/components/Contact";
-import Work from "@/components/Work";
+import Home from "@/components/home/Home";
+import Services from "@/components/home/Services";
+import About from "@/components/home/About";
+import Contact from "@/components/home/Contact";
 
 export default function HomePage() {
   return (
@@ -11,7 +10,6 @@ export default function HomePage() {
       <Services />
       <About />
       <Contact />
-      <Work />
     </main>
   );
 }

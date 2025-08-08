@@ -3,13 +3,13 @@ import { Inter } from "next/font/google";
 import { Outfit } from "next/font/google";
 
 import Menu from "@/components/Menu";
-import SocialCard from "@/components/SocialCard";
+import SocialCard from "@/components/home/SocialCard";
 
 const inter = Inter({ subsets: ["latin"] });
 const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Joseph Samy",
+  title: "Joseph Sami",
   description: "Services provided by Joseph Samy an excellent marketing professional",
 };
 

@@ -39,8 +39,8 @@ export default function Home() {
   }, [])
 
   const stats = [
-    { value: "4+", label: "Years Of Experience" },
-    { value: "50+", label: "High-Impact Campaigns" },
+    { value: "6+", label: "Years Of Experience" },
+    { value: "700+", label: "Campaigns/Projects" },
     { value: "100+", label: "Thriving Client Partnerships" },
   ];
 
@@ -125,6 +125,7 @@ export default function Home() {
   return (
     <section id="home" className="flex flex-col justify-center min-h-screen pb-12 overflow-hidden bg-dark">
       <div className="container mx-auto px-6 sm:px-8 space-y-8">
+        
         {/* Header Section */}
         <motion.div
           initial="hidden"

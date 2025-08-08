@@ -38,7 +38,7 @@ const SocialCard = () => {
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 400 }}
           >
-            Joseph Ayman
+            Joseph Sami
           </motion.h2>
           <p className="text-accent-light text-xs sm:text-sm font-medium">
             Product Management and Marketing Specialist

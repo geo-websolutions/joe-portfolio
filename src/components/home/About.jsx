@@ -84,14 +84,6 @@ export default function About() {
 
         {/* Interactive Timeline */}
         <div className="relative">
-          {/* Vertical Timeline Line */}
-          <motion.div
-            initial={{ height: 0 }}
-            whileInView={{ height: "100%" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            viewport={{ once: false }}
-            className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-accent/30 h-full"
-          />
 
           {/* Career Steps */}
           <div className="space-y-12">
