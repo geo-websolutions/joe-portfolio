@@ -9,29 +9,29 @@ export default function Contact() {
     {
       icon: <FiMail className="text-3xl text-accent" />,
       title: "Email Me",
-      info: "contact@josephsamy.com",
-      action: "mailto:contact@josephsamy.com",
+      info: "support@josephsami.com",
+      action: "mailto:support@josephsami.com",
       animation: { x: -30, opacity: 0 }
     },
     {
       icon: <FiPhone className="text-3xl text-accent-light" />,
       title: "Call Me",
-      info: "+1 (555) 123-4567",
-      action: "tel:+15551234567",
+      info: "+20 10 17818940",
+      action: "tel:+201017818940",
       animation: { y: 30, opacity: 0 }
     },
     {
       icon: <FaWhatsapp className="text-3xl text-green-400" />,
       title: "WhatsApp",
       info: "Chat instantly",
-      action: "https://wa.me/15551234567",
+      action: "https://wa.me/+201017818940",
       animation: { x: 30, opacity: 0 }
     },
     {
       icon: <FiLinkedin className="text-3xl text-blue-400" />,
       title: "LinkedIn",
       info: "Connect professionally",
-      action: "https://linkedin.com/in/josephsamy",
+      action: "https://www.linkedin.com/in/joseph-sami-830a481b4/",
       animation: { y: -30, opacity: 0 }
     },
   ];
