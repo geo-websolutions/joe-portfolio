@@ -40,7 +40,7 @@ const services = [
   },
   {
     title: 'Google Workspace Setups',
-    description: 'Optimize your team’s productivity and collaboration with expert Google Workspace configurations. We ensure your email, document management, cloud storage, and calendar systems are meticulously organized, robustly secure, and seamlessly integrated for peak collaborative performance. Empower your team to work faster, smarter, and with complete peace of mind.',
+    description: "Optimize your team's productivity and collaboration with expert Google Workspace configurations. We ensure your email, document management, cloud storage, and calendar systems are meticulously organized, robustly secure, and seamlessly integrated for peak collaborative performance. Empower your team to work faster, smarter, and with complete peace of mind.",
     icon: FaGoogle,
   },
   {
@@ -129,7 +129,7 @@ export default function ServicesPage() {
           Our Services
         </h1>
         <p className='text-xl text-cool-beige leading-relaxed'>
-          Discover how we empower businesses to thrive in today's dynamic landscape. From strategic consulting to bespoke development and comprehensive training, our solutions are designed to optimize your operations, accelerate growth, and build lasting success.
+          Discover how we empower businesses to thrive in today&apos;s dynamic landscape. From strategic consulting to bespoke development and comprehensive training, our solutions are designed to optimize your operations, accelerate growth, and build lasting success.
         </p>
       </motion.header>
 
