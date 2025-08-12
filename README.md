@@ -81,5 +81,4 @@ services/
 page.js
 public/
 images/
-styles/
 globals.css
